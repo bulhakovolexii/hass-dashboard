@@ -1,7 +1,7 @@
-import { tokens } from "../../../theme";
+import { tokens } from "../../theme";
 import { useState } from "react";
 import { Link } from "react-router-dom"
-import { useChangeStateMutation, useGetStateQuery } from "../../../redux";
+import { useChangeStateMutation, useGetStateQuery } from "../../redux";
 import {
     Avatar,
     Badge,
@@ -93,7 +93,6 @@ export default function Sidebar({ open, mobileOpen, handleDrawerClose, handleDra
             <ListItem disablePadding>
                 <ListItemButton
                     selected={selected === title}
-                    disabled={selected === title}
                     component={Link}
                     to={to}
                     onClick={() => {
@@ -104,8 +103,8 @@ export default function Sidebar({ open, mobileOpen, handleDrawerClose, handleDra
                         "&.Mui-selected": {
                             "backgroundColor": colors.blueAccent[600]
                         },
-                        "&.Mui-disabled": {
-                            "opacity": 1
+                        "&.Mui-selected:hover": {
+                            "backgroundColor": colors.blueAccent[600]
                         },
                     }}
                 >
@@ -176,7 +175,10 @@ export default function Sidebar({ open, mobileOpen, handleDrawerClose, handleDra
         <>
             <Drawer variant="permanent" open={open} background={colors.primary[900]} >
                 <Toolbar sx={{ justifyContent: "end" }}>
-                    <IconButton onClick={handleDrawerClose}>
+                    <IconButton
+                        onClick={handleDrawerClose}
+                        sx={!open && { display: "none" }}
+                    >
                         <ChevronLeftIcon />
                     </IconButton>
                 </Toolbar>

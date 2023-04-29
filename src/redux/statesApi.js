@@ -18,6 +18,10 @@ export const statesApi = createApi({
             query: (entity_id) => `states/${entity_id}`,
             providesTags: ['States']
         }),
+        getHistory: build.query({
+            query: (entity_id) => `history/period?filter_entity_id=${entity_id}`,
+            providesTags: ['States']
+        }),
         changeState: build.mutation({
             query: ({ body, entity_id }) => {
                 return {
@@ -31,4 +35,4 @@ export const statesApi = createApi({
     })
 });
 
-export const { useGetStatesQuery, useGetStateQuery, useChangeStateMutation } = statesApi;
+export const { useGetStatesQuery, useGetStateQuery, useGetHistoryQuery, useChangeStateMutation } = statesApi;

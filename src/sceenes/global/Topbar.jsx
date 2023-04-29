@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { ColorModeContext, tokens } from "../../../theme";
+import { ColorModeContext, tokens } from "../../theme";
 import { Button, Dialog, DialogActions, DialogContentText, DialogTitle, IconButton, Toolbar, Typography, styled, useTheme, } from "@mui/material";
 import MuiAppBar from '@mui/material/AppBar';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -98,6 +98,12 @@ export default function Topbar({ open, handleDrawerOpen, handleDrawerToggle }) {
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, architecto sint similique numquam dolorem, temporibus delectus assumenda ea beatae vitae molestias in et provident reiciendis atque suscipit. Cupiditate, suscipit sunt.
                 </DialogContentText>
                 <DialogActions>
+                    <Button
+                        onClick={toggleInfo}
+                        sx={{ color: colors.blueAccent[600] }}
+                    >
+                        Back
+                    </Button>
                     <Button
                         onClick={toggleInfo}
                         autoFocus

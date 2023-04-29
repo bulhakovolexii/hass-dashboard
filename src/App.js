@@ -3,12 +3,12 @@ import { CssBaseline, ThemeProvider, Toolbar } from "@mui/material";
 import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import { useGetStatesQuery } from "./redux"
-import Topbar from "./components/sceenes/global/Topbar"
-import Sidebar from "./components/sceenes/global/Sidebar";
-import Loader from "./components/sceenes/global/Loader";
-import Dashboard from "./components/sceenes/dashboard"
-import Energy from "./components/sceenes/energy/Energy"
-import Media from "./components/sceenes/media/Media";
+import Topbar from "./sceenes/global/Topbar"
+import Sidebar from "./sceenes/global/Sidebar";
+import Loader from "./sceenes/global/Loader";
+import Dashboard from "./sceenes/dashboard"
+import Energy from "./sceenes/energy/Energy"
+import Media from "./sceenes/media/Media";
 
 export default function App() {
   const [theme, colorMode] = useMode();
@@ -49,7 +49,7 @@ export default function App() {
             {isLoading && <Loader open={isLoading} />}
             <Routes>
               <Route path="/" element={<Dashboard />} />
-              <Route path="/energy" element={<Energy />} />
+              <Route path="/energy" element={<Energy isSidebarOpen={open} />} />
               <Route path="/media" element={<Media />} />
             </Routes>
           </div>
