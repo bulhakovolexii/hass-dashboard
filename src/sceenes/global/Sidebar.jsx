@@ -70,7 +70,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 export default function Sidebar({ open, mobileOpen, handleDrawerClose, handleDrawerToggle }) {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode)
-    const [selected, setSelected] = useState("Dashboard");
+    const [selected, setSelected] = useState(document.location.pathname);
     const userEntity = "person.olexii_bulhakov";
     const { data: user = { entity_id: userEntity } } = useGetStateQuery(userEntity);
     const [toggleIsHome] = useChangeStateMutation();
@@ -92,19 +92,20 @@ export default function Sidebar({ open, mobileOpen, handleDrawerClose, handleDra
         return (
             <ListItem disablePadding>
                 <ListItemButton
-                    selected={selected === title}
+                    selected={selected === to}
+                    disabled={selected === to}
                     component={Link}
                     to={to}
                     onClick={() => {
-                        setSelected(title);
+                        setSelected(to);
                         if (mobileOpen) handleDrawerToggle();
                     }}
                     sx={{
                         "&.Mui-selected": {
                             "backgroundColor": colors.blueAccent[600]
                         },
-                        "&.Mui-selected:hover": {
-                            "backgroundColor": colors.blueAccent[600]
+                        "&.Mui-disabled": {
+                            "opacity": 1
                         },
                     }}
                 >
@@ -177,14 +178,16 @@ export default function Sidebar({ open, mobileOpen, handleDrawerClose, handleDra
                 <Toolbar sx={{ justifyContent: "end" }}>
                     <IconButton
                         onClick={handleDrawerClose}
-                        sx={!open && { display: "none" }}
+                        sx={{
+                            ...(!open && { display: "none" })
+                        }}
                     >
                         <ChevronLeftIcon />
                     </IconButton>
                 </Toolbar>
                 <Divider />
                 <DrawerList />
-            </Drawer>
+            </Drawer >
             <MuiDrawer
                 open={mobileOpen}
                 onClose={handleDrawerToggle}
