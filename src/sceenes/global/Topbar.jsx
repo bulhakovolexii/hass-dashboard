@@ -86,10 +86,7 @@ export default function Topbar({ open, handleDrawerOpen, handleDrawerToggle }) {
             <Dialog
                 open={infoOpen}
                 onClose={toggleInfo}
-                sx={theme.palette.mode === "dark" &&
-                {
-                    "& .MuiPaper-root": { backgroundColor: colors.primary[600] }
-                }}
+                sx={{ "& .MuiPaper-root": { backgroundColor: theme.palette.mode === 'dark' && colors.primary[600] } }}
             >
                 <DialogTitle>
                     Title

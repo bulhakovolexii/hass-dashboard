@@ -7,7 +7,10 @@ export const statesApi = createApi({
     tagTypes: ["States"],
     baseQuery: fetchBaseQuery({
         baseUrl: 'http://ec2-13-50-251-209.eu-north-1.compute.amazonaws.com:8123/api/',
-        headers: { Authorization: `Bearer ${token}` }
+        headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json"
+        }
     }),
     endpoints: (build) => ({
         getStates: build.query({
@@ -32,7 +35,17 @@ export const statesApi = createApi({
             },
             invalidatesTags: ["States"]
         }),
+        turnLight: build.mutation({
+            query: ({ body }) => {
+                return {
+                    url: `/services/light/toggle`,
+                    method: "POST",
+                    body,
+                }
+            },
+            invalidatesTags: ["States"]
+        }),
     })
 });
 
-export const { useGetStatesQuery, useGetStateQuery, useGetHistoryQuery, useChangeStateMutation } = statesApi;
+export const { useGetStatesQuery, useGetStateQuery, useGetHistoryQuery, useChangeStateMutation, useTurnLightMutation } = statesApi;

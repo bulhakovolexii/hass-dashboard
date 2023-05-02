@@ -1,20 +1,17 @@
 import { ColorModeContext, useMode } from "./theme";
-import { CssBaseline, ThemeProvider, Toolbar } from "@mui/material";
+import { Container, CssBaseline, ThemeProvider, Toolbar } from "@mui/material";
 import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
-import { useGetStatesQuery } from "./redux"
 import Topbar from "./sceenes/global/Topbar"
 import Sidebar from "./sceenes/global/Sidebar";
-import Loader from "./sceenes/global/Loader";
 import Dashboard from "./sceenes/dashboard"
 import Energy from "./sceenes/energy/Energy"
 import Media from "./sceenes/media/Media";
 
 export default function App() {
   const [theme, colorMode] = useMode();
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const { isLoading } = useGetStatesQuery('');
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -45,13 +42,14 @@ export default function App() {
             handleDrawerToggle={handleDrawerToggle}
           />
           <div className="content">
-            <Toolbar />
-            {isLoading && <Loader open={isLoading} />}
-            <Routes>
-              <Route path="/" element={<Dashboard />} />
-              <Route path="/energy" element={<Energy isSidebarOpen={open} />} />
-              <Route path="/media" element={<Media />} />
-            </Routes>
+            <Container maxWidth="xl" sx={{ pt: "16px", pb: "16px" }} >
+              <Toolbar />
+              <Routes>
+                <Route path="/" element={<Dashboard />} />
+                <Route path="/energy" element={<Energy isSidebarOpen={open} />} />
+                <Route path="/media" element={<Media />} />
+              </Routes>
+            </Container>
           </div>
         </div>
       </ThemeProvider>

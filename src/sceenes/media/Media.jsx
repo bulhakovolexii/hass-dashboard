@@ -1,3 +1,5 @@
 export default function Media() {
-    return <div>Media</div>
+    return (
+        <div className="media">Media</div>
+    )
 }

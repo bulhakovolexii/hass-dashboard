@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Card } from "@mui/material";
 import EnergyChart from "../../components/energy-chart/EnergyChart";
 
 export default function Energy({ isSidebarOpen }) {
@@ -11,7 +11,9 @@ export default function Energy({ isSidebarOpen }) {
             maxHeight: "calc(100vh - 85px)",
             width: "100%"
         }}>
-            <EnergyChart />
+            <Card sx={{ width: "100%", height: "100%", bgcolor: "transparent" }}>
+                <EnergyChart />
+            </Card>
         </Box>
     )
 }

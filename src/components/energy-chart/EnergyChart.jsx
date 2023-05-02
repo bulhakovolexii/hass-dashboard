@@ -12,6 +12,7 @@ export default function EnergyChart({ isSidebarOpen }) {
             data={data}
             theme={{
                 // added
+                background: colors.primary[400],
                 axis: {
                     domain: {
                         line: {
@@ -44,31 +45,32 @@ export default function EnergyChart({ isSidebarOpen }) {
             }}
             keys={["Grid consumption", "Solar production", "Battery systems"]}
             indexBy="time"
-            margin={{ top: 50, right: 20, bottom: 60, left: 55 }}
+            margin={{ top: 50, right: 20, bottom: 72, left: 55 }}
             padding={0.3}
             valueScale={{ type: "linear" }}
             indexScale={{ type: "band", round: true }}
             colors={{ scheme: "set2" }}
-            defs={[
-                {
-                    id: "dots",
-                    type: "patternDots",
-                    background: "inherit",
-                    color: "#38bcb2",
-                    size: 4,
-                    padding: 1,
-                    stagger: true,
-                },
-                {
-                    id: "lines",
-                    type: "patternLines",
-                    background: "inherit",
-                    color: "#eed312",
-                    rotation: -45,
-                    lineWidth: 6,
-                    spacing: 10,
-                },
-            ]}
+            defs={
+                [
+                    {
+                        id: "dots",
+                        type: "patternDots",
+                        background: "inherit",
+                        color: "#38bcb2",
+                        size: 4,
+                        padding: 1,
+                        stagger: true,
+                    },
+                    {
+                        id: "lines",
+                        type: "patternLines",
+                        background: "inherit",
+                        color: "#eed312",
+                        rotation: -45,
+                        lineWidth: 6,
+                        spacing: 10,
+                    },
+                ]}
             borderColor={{
                 from: "color",
                 modifiers: [["darker", "1.6"]],
@@ -86,6 +88,7 @@ export default function EnergyChart({ isSidebarOpen }) {
                 tickSize: 5,
                 tickPadding: 5,
                 tickRotation: 0,
+                tickValues: 5,
                 legend: "kWh",
                 legendPosition: "middle",
                 legendOffset: -40,
@@ -97,30 +100,31 @@ export default function EnergyChart({ isSidebarOpen }) {
                 from: "color",
                 modifiers: [["darker", 1.6]],
             }}
-            legends={[
-                {
-                    dataFrom: "keys",
-                    anchor: "bottom",
-                    direction: "row",
-                    justify: false,
-                    translateX: 0,
-                    translateY: 60,
-                    itemsSpacing: 2,
-                    itemWidth: 120,
-                    itemHeight: 20,
-                    itemDirection: "left-to-right",
-                    itemOpacity: 0.85,
-                    symbolSize: 20,
-                    effects: [
-                        {
-                            on: "hover",
-                            style: {
-                                itemOpacity: 1,
+            legends={
+                [
+                    {
+                        dataFrom: "keys",
+                        anchor: "bottom",
+                        direction: "row",
+                        justify: false,
+                        translateX: 0,
+                        translateY: 64,
+                        itemsSpacing: 2,
+                        itemWidth: 120,
+                        itemHeight: 20,
+                        itemDirection: "left-to-right",
+                        itemOpacity: 0.85,
+                        symbolSize: 20,
+                        effects: [
+                            {
+                                on: "hover",
+                                style: {
+                                    itemOpacity: 1,
+                                },
                             },
-                        },
-                    ],
-                },
-            ]}
+                        ],
+                    },
+                ]}
         />
     )
 }
