@@ -45,7 +45,46 @@ export const statesApi = createApi({
             },
             invalidatesTags: ["States"]
         }),
+        setHeatTepm: build.mutation({
+            query: ({ body }) => {
+                return {
+                    url: `/services/climate/set_temperature`,
+                    method: "POST",
+                    body,
+                }
+            },
+            invalidatesTags: ["States"]
+        }),
+        turnHeatPump: build.mutation({
+            query: ({ body, action }) => {
+                return {
+                    url: `/services/climate/${action}`,
+                    method: "POST",
+                    body,
+                }
+            },
+            invalidatesTags: ["States"]
+        }),
+        controlMusic: build.mutation({
+            query: ({ body, action }) => {
+                return {
+                    url: `/services/media_player/${action}`,
+                    method: "POST",
+                    body,
+                }
+            },
+            invalidatesTags: ["States"]
+        }),
     })
 });
 
-export const { useGetStatesQuery, useGetStateQuery, useGetHistoryQuery, useChangeStateMutation, useTurnLightMutation } = statesApi;
+export const {
+    useGetStatesQuery,
+    useGetStateQuery,
+    useGetHistoryQuery,
+    useChangeStateMutation,
+    useTurnLightMutation,
+    useSetHeatTepmMutation,
+    useTurnHeatPumpMutation,
+    useControlMusicMutation,
+} = statesApi;

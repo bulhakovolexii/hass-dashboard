@@ -6,7 +6,6 @@ import Topbar from "./sceenes/global/Topbar"
 import Sidebar from "./sceenes/global/Sidebar";
 import Dashboard from "./sceenes/dashboard"
 import Energy from "./sceenes/energy/Energy"
-import Media from "./sceenes/media/Media";
 
 export default function App() {
   const [theme, colorMode] = useMode();
@@ -47,7 +46,6 @@ export default function App() {
               <Routes>
                 <Route path="/" element={<Dashboard />} />
                 <Route path="/energy" element={<Energy isSidebarOpen={open} />} />
-                <Route path="/media" element={<Media />} />
               </Routes>
             </Container>
           </div>

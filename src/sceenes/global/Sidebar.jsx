@@ -23,13 +23,12 @@ import IconButton from '@mui/material/IconButton';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
 import ElectricMeterOutlinedIcon from '@mui/icons-material/ElectricMeterOutlined';
-import PermMediaOutlinedIcon from '@mui/icons-material/PermMediaOutlined';
 
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
     width: "0px",
-    [theme.breakpoints.up('sm')]: { width: drawerWidth },
+    [theme.breakpoints.up('md')]: { width: drawerWidth },
     transition: theme.transitions.create('width', {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.enteringScreen,
@@ -44,7 +43,7 @@ const closedMixin = (theme) => ({
     }),
     overflowX: 'hidden',
     width: "0px",
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('md')]: {
         width: `calc(${theme.spacing(8)} + 1px)`,
     },
 });
@@ -136,13 +135,6 @@ export default function Sidebar({ open, mobileOpen, handleDrawerClose, handleDra
                         selected={selected}
                         setSelected={setSelected}
                     />
-                    <DrawerItem
-                        title="Media"
-                        to="/media"
-                        icon={<PermMediaOutlinedIcon />}
-                        selected={selected}
-                        setSelected={setSelected}
-                    />
                 </List>
                 <ListItem sx={{ pl: 2 }}>
                     <Tooltip title={user.state === "home" ? "leave home" : "come home"}>
@@ -192,7 +184,7 @@ export default function Sidebar({ open, mobileOpen, handleDrawerClose, handleDra
                 open={mobileOpen}
                 onClose={handleDrawerToggle}
                 sx={{
-                    display: { xs: 'flex', sm: 'none' },
+                    display: { sm: 'flex', md: 'none' },
                     zIndex: theme.zIndex.drawer + 2
                 }}>
                 <Box sx={{

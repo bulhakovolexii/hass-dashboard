@@ -19,7 +19,7 @@ const AppBar = styled(MuiAppBar, {
     }),
     ...(open && {
         marginLeft: drawerWidth,
-        [theme.breakpoints.up('sm')]: {
+        [theme.breakpoints.up('md')]: {
             width: `calc(100% - ${drawerWidth}px)`
         },
         transition: theme.transitions.create(['width', 'margin'], {
@@ -52,7 +52,7 @@ export default function Topbar({ open, handleDrawerOpen, handleDrawerToggle }) {
                         edge="start"
                         sx={{
                             marginRight: 5,
-                            display: { sm: "flex", xs: "none" },
+                            display: { md: "flex", xs: "none" },
                             ...(open && { display: "none" }),
                         }}
                     >
@@ -63,13 +63,13 @@ export default function Topbar({ open, handleDrawerOpen, handleDrawerToggle }) {
                         edge="start"
                         sx={{
                             ...(open && { display: "none" }),
-                            display: { sm: "none", xs: "flex" }
+                            display: { md: "none", sm: "flex" }
                         }}
                     >
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" flexGrow={1} noWrap>
-                        Home Assistant dashboard
+                        Smart Home Dashboard
                     </Typography>
                     <IconButton onClick={colorMode.toggleColorMode}>
                         {theme.palette.mode === "dark" ? (
@@ -89,10 +89,13 @@ export default function Topbar({ open, handleDrawerOpen, handleDrawerToggle }) {
                 sx={{ "& .MuiPaper-root": { backgroundColor: theme.palette.mode === 'dark' && colors.primary[600] } }}
             >
                 <DialogTitle>
-                    Title
+                    Hello World!
                 </DialogTitle>
                 <DialogContentText sx={{ pl: 3, pr: 3 }}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, architecto sint similique numquam dolorem, temporibus delectus assumenda ea beatae vitae molestias in et provident reiciendis atque suscipit. Cupiditate, suscipit sunt.
+                    My name is Olexii Bulhakov. This project is my graduation work at the frontend course at the Prog.academy school.
+                    In this work, for the first time, I am doing a real task in React, using the libraries Mui, Nivo, Redux and RTK Query. As
+                    a backend, I used a home assistant server deployed on AWS. All functional elements on the page depend on the state of the
+                    entities that I get from the home assistant demo integration.
                 </DialogContentText>
                 <DialogActions>
                     <Button

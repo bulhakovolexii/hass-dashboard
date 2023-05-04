@@ -3,7 +3,7 @@ import { useTheme } from '@mui/material';
 import { tokens } from '../../theme';
 import data from "../../data/bar"
 
-export default function EnergyChart({ isSidebarOpen }) {
+export default function EnergyChart({ isDashboard }) {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
 
@@ -45,7 +45,9 @@ export default function EnergyChart({ isSidebarOpen }) {
             }}
             keys={["Grid consumption", "Solar production", "Battery systems"]}
             indexBy="time"
-            margin={{ top: 50, right: 20, bottom: 72, left: 55 }}
+            margin={isDashboard ?
+                { top: 16, right: 16, bottom: 16, left: 16 }
+                : { top: 50, right: 20, bottom: 72, left: 55 }}
             padding={0.3}
             valueScale={{ type: "linear" }}
             indexScale={{ type: "band", round: true }}
@@ -77,14 +79,14 @@ export default function EnergyChart({ isSidebarOpen }) {
             }}
             axisTop={null}
             axisRight={null}
-            axisBottom={{
+            axisBottom={isDashboard ? "" : {
                 tickSize: 5,
                 tickPadding: 5,
                 tickRotation: 90,
                 legend: "",
                 legendOffset: 32,
             }}
-            axisLeft={{
+            axisLeft={isDashboard ? "" : {
                 tickSize: 5,
                 tickPadding: 5,
                 tickRotation: 0,
@@ -100,7 +102,7 @@ export default function EnergyChart({ isSidebarOpen }) {
                 from: "color",
                 modifiers: [["darker", 1.6]],
             }}
-            legends={
+            legends={isDashboard ? [] :
                 [
                     {
                         dataFrom: "keys",
