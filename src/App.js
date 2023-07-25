@@ -2,10 +2,10 @@ import { ColorModeContext, useMode } from "./theme";
 import { Container, CssBaseline, ThemeProvider, Toolbar } from "@mui/material";
 import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
-import Topbar from "./sceenes/global/Topbar"
+import Topbar from "./sceenes/global/Topbar";
 import Sidebar from "./sceenes/global/Sidebar";
-import Dashboard from "./sceenes/dashboard"
-import Energy from "./sceenes/energy/Energy"
+import Dashboard from "./sceenes/dashboard";
+import Energy from "./sceenes/energy/Energy";
 
 export default function App() {
   const [theme, colorMode] = useMode();
@@ -21,8 +21,8 @@ export default function App() {
   };
 
   const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen)
-  }
+    setMobileOpen(!mobileOpen);
+  };
 
   return (
     <ColorModeContext.Provider value={colorMode}>
@@ -41,16 +41,19 @@ export default function App() {
             handleDrawerToggle={handleDrawerToggle}
           />
           <div className="content">
-            <Container maxWidth="xl" sx={{ pt: "16px", pb: "16px" }} >
+            <Container maxWidth="xl" sx={{ pt: "16px", pb: "16px" }}>
               <Toolbar />
               <Routes>
-                <Route path="/" element={<Dashboard />} />
-                <Route path="/energy" element={<Energy isSidebarOpen={open} />} />
+                <Route path="/hass-dashboard" element={<Dashboard />} />
+                <Route
+                  path="/hass-dashboard/energy"
+                  element={<Energy isSidebarOpen={open} />}
+                />
               </Routes>
             </Container>
           </div>
         </div>
       </ThemeProvider>
-    </ColorModeContext.Provider >
+    </ColorModeContext.Provider>
   );
 }
