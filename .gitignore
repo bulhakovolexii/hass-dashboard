@@ -8,6 +8,9 @@
 # testing
 /coverage
 
+# backend-demo
+/hass-local-server
+
 # production
 /build
 

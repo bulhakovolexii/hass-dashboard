@@ -128,7 +128,7 @@ export default function Sidebar({
         <List sx={{ flexGrow: "1" }}>
           <DrawerItem
             title="Dashboard"
-            to="/hass-dashboard"
+            to="/hass-dashboard/"
             icon={<DashboardOutlinedIcon />}
             selected={selected}
             setSelected={setSelected}
