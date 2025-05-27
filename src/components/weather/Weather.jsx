@@ -44,7 +44,7 @@ export default function Weather() {
         temperature_unit: "",
       },
     },
-  } = useGetStateQuery("weather.forecast_hass_dashboard");
+  } = useGetStateQuery("weather.forecast_golovna");
   const weather = {
     state: "",
     icon: "",

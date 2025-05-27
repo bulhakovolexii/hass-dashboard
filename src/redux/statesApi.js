@@ -1,13 +1,12 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIxOGYwYzQzMGQ2MzY0ZTVkYmUzZTMzZDNlNGVkZThmNCIsImlhdCI6MTY5MDMwODM1NCwiZXhwIjoyMDA1NjY4MzU0fQ.K4C3hqI1O16Ylt7Zjnxq5WTEcfJN8NMyZKBzu0qwuKg";
+const token = process.env.REACT_APP_HASS_TOKEN;
 
 export const statesApi = createApi({
   reducerPath: "statesApi",
   tagTypes: ["States"],
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://hassapi.bulhakov.dev/api/",
+    baseUrl: `${process.env.REACT_APP_HASS_URL}/api`,
     headers: {
       Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",

@@ -14,7 +14,7 @@ export default function Camera({ entity_id }) {
     },
     isLoading,
   } = useGetStateQuery(entity_id, { pollingInterval: 10000 });
-  const imgPath = `https://hassapi.bulhakov.dev${img.attributes.entity_picture}`;
+  const imgPath = `${process.env.REACT_APP_HASS_URL}${img.attributes.entity_picture}`;
 
   return isLoading ? (
     <CircularProgress />

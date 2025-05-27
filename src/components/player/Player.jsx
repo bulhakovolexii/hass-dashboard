@@ -27,7 +27,7 @@ export default function Player({ entity_id }) {
     isLoading,
   } = useGetStateQuery(entity_id, { pollingInterval: 3000 });
   const [ControlMusic] = useControlMusicMutation();
-  const imgPath = `https://hassapi.bulhakov.dev${player.attributes.entity_picture}`;
+  const imgPath = `${process.env.REACT_APP_HASS_URL}${player.attributes.entity_picture}`;
 
   const handlePlayPause = () => {
     ControlMusic({
