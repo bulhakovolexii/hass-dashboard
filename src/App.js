@@ -44,9 +44,9 @@ export default function App() {
             <Container maxWidth="xl" sx={{ pt: "16px", pb: "16px" }}>
               <Toolbar />
               <Routes>
-                <Route path="/hass-dashboard" element={<Dashboard />} />
+                <Route path="/" element={<Dashboard />} />
                 <Route
-                  path="/hass-dashboard/energy"
+                  path="/energy"
                   element={<Energy isSidebarOpen={open} />}
                 />
               </Routes>

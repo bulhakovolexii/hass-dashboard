@@ -128,14 +128,14 @@ export default function Sidebar({
         <List sx={{ flexGrow: "1" }}>
           <DrawerItem
             title="Dashboard"
-            to="/hass-dashboard/"
+            to="/"
             icon={<DashboardOutlinedIcon />}
             selected={selected}
             setSelected={setSelected}
           />
           <DrawerItem
             title="Energy"
-            to="/hass-dashboard/energy"
+            to="/energy"
             icon={<ElectricMeterOutlinedIcon />}
             selected={selected}
             setSelected={setSelected}
@@ -157,7 +157,7 @@ export default function Sidebar({
                 >
                   <Avatar
                     alt="user-profile"
-                    src="../hass-dashboard/assets/olexii.jpg"
+                    src="../assets/olexii.jpg"
                   />
                 </Badge>
               </IconButton>
