@@ -2,4 +2,4 @@
 
 My graduation project on the front-end course at the prog.academy school
 
-demo => [https://hassdashboard.bulhakov.dev/](https://hassdashboard.bulhakov.dev/)
+demo => [https://hass-dashboard.bulhakov.dev/](https://hass-dashboard.bulhakov.dev/)
